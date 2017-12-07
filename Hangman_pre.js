@@ -12,16 +12,11 @@ var win.counter = 0;
 // empty array for incorrect letters guessed
 var voidLetters = [];
 
-// empty array for position of correctly guessed letters
-var solutionPosition = [];
-
 // full array for alphabet
-var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-
 var alphabetU= "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 // array full of word bank, which are strings beginning with position 0
-var wordBank = ["Candy Castle", "Gumdrop Mountain", "Lollipop Woods", "Molasses Swamp", "Peppermint Forest", "Ice Cream Sea", "Cupcake Commons", "Peanut Brittle House", "Gingerbread Plum Trees", "Duke of Swirl", "Gramma Nut", "Jolly", "Plumpy", "Mamma Gingertree", "Gramma Gooey", "Gloppy", "Mister Mint", "Princess Lolly", "Queen Frostine", "Lord Licorice"];
+var wordBank = ["CANDY CASTLE", "GUMDROP MOUNTAIN", "LOLLIPOP WOODS", "MOLASSES SWAMP", "PEPPERMINT FOREST", "ICE CREAM SEA", "CUPCAKE COMMONS", "PEANUT BRITTLE HOUSE", "GINGERBREAD PLUIM TREES", "DUKE OF SWIRL", "GRAMMA NUT", "JOLLY", "PLUMPY", "MAMMA GINGERTREE", "GRAMMA GOOEY", "GLOPPY", "MISTER MINT", "PRIINCESS LOLLY", "QUEEN FROSTINE", "LORD LICORICE"];
 
 // empty variable for string (answer from word bank) not shown to user
 var solution = ''
@@ -42,24 +37,22 @@ function gameStart() {
 
 
 // count the string length of the selected word variable
-	answer = solution.replace(/([a-zA-Z])/g, "_")
+	answer = solution.replace(/([A-Z])/g, "_")
 
 // event get key down and save to correct variables
 	document.onkeyup = function(event) {
 		var userGuess = event.key;
-		console.log(userGuess.toLowerCase());
-		var userGuessU = userGuess.toUpperCase();
+		console.log(userGuess.toUpperCase());
 
 // compare if varaible guessed is in alphabet array
-	if ((userGuess === alphabet alphabetU)
-		
+	if (userGuess !== alphabetU) {
+		alert("Invalid entry. Please type a letter")
 
-
-	// IF NOT in alphabet array give alert: not a valid guess, select a letter
-
-
-	// IF in alphabet array, compare to variable word selected
-
+// empty array for position of correctly guessed letters
+	var position = [];
+	for(var i=0; i<solution.length;i++) {
+    	if (solution[i] === userGuess) position.push(i);
+	}
 
 		// IF NOT in word selected variable add to function incorrectly guessed letters
 
